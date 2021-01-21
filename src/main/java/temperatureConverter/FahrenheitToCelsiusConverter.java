@@ -15,29 +15,31 @@ public class FahrenheitToCelsiusConverter {
 		System.out.println(
 				"With this tool, you will be able to convert your current temperature to either Fahrenheit or Celsius."
 						+ "\n");
-		System.out.println("Is the current temperature you're converting in Fahrenheit or Celsius?");
+		System.out.println("Do you want to convert to Fahrenheit or Celsius");
 		System.out.println("Type 'F' for fahrenheit or 'C' for celsius:" + "");
 		String isItForC = takeInTheTemp.nextLine();
 
 		if (isItForC.equalsIgnoreCase("f")) {
-			System.out.println("\n" + "You chose Fahrenheit, so let's convert your temperature to Celsius. Enter that number below:");
+			System.out.println("\n" + "You chose Fahrenheit! Enter the number that you would like to convert to Fahrenheit:");
 			String enteredNumberF = takeInTheTemp.nextLine();
 
-			double convertToDoubleC = Double.parseDouble(enteredNumberF);
-			double finalNumberC = ((convertToDoubleC * 9 / 5) + 32);
-			BigDecimal convertToDoubleCBigDecimal = new BigDecimal(finalNumberC).setScale(2, RoundingMode.HALF_UP);
+			double convertToFahrenheit = Double.parseDouble(enteredNumberF);
+			double finalFahrenheit = ((convertToFahrenheit * 9 / 5) + 32);
+			BigDecimal fahrenheitBigDecimal = new BigDecimal(finalFahrenheit).setScale(2, RoundingMode.HALF_UP);
+			
 
-			System.out.println("\n" + "You entered " + convertToDoubleC + ", which converts to " + convertToDoubleCBigDecimal + " degrees Celsius!");
+			System.out.println("\n" + "You entered " + enteredNumberF + ", which converts to " + fahrenheitBigDecimal + " degrees Fahrenheit!");
 	
 			
 		} else if (isItForC.equalsIgnoreCase("c")) {
-			System.out.println("You chose Celsius, so let's convert your temperature to Fahrenheit. Enter that number below:");
+			System.out.println("\n" + "You chose Celsius! Enter the number that you would like to convert to Fahrenheit:");
 			String enteredNumberC = takeInTheTemp.nextLine();
 
-			double convertToDoubleF = Double.parseDouble(enteredNumberC);
-			double finalNumberF = ((convertToDoubleF - 32) * 5 / 9);
-			BigDecimal convertToDoubleFBigDecimal = new BigDecimal(finalNumberF).setScale(2, RoundingMode.HALF_UP);
-			System.out.println("You entered " + enteredNumberC + ", which converts to " + convertToDoubleFBigDecimal + " degrees Fahrenheit!");
+			double convertToCelsius = Double.parseDouble(enteredNumberC);
+			double finalCelsius = ((convertToCelsius - 32) * 5 / 9);
+			
+			BigDecimal celsiusBigDecimal = new BigDecimal(finalCelsius).setScale(2, RoundingMode.HALF_UP);
+			System.out.println("You entered " + enteredNumberC + ", which converts to " + celsiusBigDecimal + " degrees Fahrenheit!");
 
 		} else {
 			System.out.println("This is not a valid selection. Please try again!");
